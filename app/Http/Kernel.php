@@ -31,6 +31,8 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
 		'Age' => \App\Http\Middleware\AgeMiddleware::class,
 		'Role' => \App\Http\Middleware\RoleMiddleware::class,
-		'terminate' => \App\Http\Middleware\TerminateMiddleware::class
+		'terminate' => \App\Http\Middleware\TerminateMiddleware::class,
+		'First' => \App\Http\Middleware\FirstMiddleware::class,
+		'Second' => \App\Http\Middleware\SecondMiddleware::class
     ];
 }
