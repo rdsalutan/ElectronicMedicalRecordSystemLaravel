@@ -1,5 +1,3 @@
-cd %dp01
-dir
 git status 
 git add --all
 git status
