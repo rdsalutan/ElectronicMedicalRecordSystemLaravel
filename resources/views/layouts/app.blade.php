@@ -48,8 +48,21 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-					<li><a href="{{ url('/about') }}">About</a></li>
-					<li><a href="{{ url('/contact') }}">Contact</a></li>
+                    @if(Auth::check())
+                    <li><a href="{{ url('/about') }}">About</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Medical Records
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url('/medical/records/new') }}">New</a></li> 
+                            <li><a href="{{ url('/medical/records/update') }}">Update</a></li>
+                            <li><a href="{{ url('/medical/records/view') }}">View</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url('/contact') }}">Contact</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
