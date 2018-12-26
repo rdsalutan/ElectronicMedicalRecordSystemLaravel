@@ -47,3 +47,6 @@ Route::get('/contact', 'ContactController@index');
 
 Route::auth();
 Route::get('/about', 'AboutController@index');
+
+Route::auth();
+Route::get('/medicalrecords/new', 'NewMedicalRecordController@index');

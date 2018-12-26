@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>DLS-UMC</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -56,9 +56,9 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ url('/medical/records/new') }}">New</a></li> 
-                            <li><a href="{{ url('/medical/records/update') }}">Update</a></li>
-                            <li><a href="{{ url('/medical/records/view') }}">View</a></li>
+                            <li><a href="{{ url('/medicalrecords/new') }}">New</a></li> 
+                            <li><a href="{{ url('/medicalrecords/update') }}">Update</a></li>
+                            <li><a href="{{ url('/medicalrecords/view') }}">View</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ url('/contact') }}">Contact</a></li>
