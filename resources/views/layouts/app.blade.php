@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>DLS-UMC</title>
+    <title>Laravel</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-					De La Salle University Medical Center
+                    Laravel
                 </a>
             </div>
 
@@ -48,21 +48,6 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                    @if(Auth::check())
-                    <li><a href="{{ url('/about') }}">About</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Medical Records
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url('/medicalrecords/new') }}">New</a></li> 
-                            <li><a href="{{ url('/medicalrecords/update') }}">Update</a></li>
-                            <li><a href="{{ url('/medicalrecords/view') }}">View</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ url('/contact') }}">Contact</a></li>
-                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -50,3 +50,7 @@ Route::get('/about', 'AboutController@index');
 
 Route::auth();
 Route::get('/medicalrecords/new', 'NewMedicalRecordController@index');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
