@@ -54,3 +54,7 @@ Route::get('/medicalrecords/new', 'NewMedicalRecordController@index');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
