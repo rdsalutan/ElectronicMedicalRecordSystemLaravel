@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Patient;
 use App\Http\Requests;
 
 class PatientController extends Controller
@@ -16,7 +16,8 @@ class PatientController extends Controller
     public function index()
     {
         //
-        return view('patients.index');
+        $patients = Patient::all()->toArray();
+        return view('patients.index', compact('patients'));
     }
 
     /**
@@ -27,7 +28,8 @@ class PatientController extends Controller
     public function create()
     {
         //
-        return view('patients.create');
+        $patients = new Patient;
+        return view('patients.create', ['patients' => $patients ]);         
     }
 
     /**
@@ -39,6 +41,20 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         //
+        $patient = $this->validate(request(), [
+          'name' => 'required|max:100|min:5',
+          'birthdate' => 'required|date',
+          'civilstatus' => 'required',
+          'gender' => 'required',
+          'mobile' => 'numeric',
+          'home' => 'numeric',
+          'email' => 'email',
+          'address' => 'required|max:100',
+          'religion' => 'required|max:100',
+          'valid_id' => 'alpha_num'                      
+        ]);
+        Patient::create($request->all());
+        return back()->with('success', 'Patient has been added');        
     }
 
     /**

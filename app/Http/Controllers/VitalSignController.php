@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Students;
+
 use App\Http\Requests;
 
-class StudentController extends Controller
+class VitalSignController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,6 @@ class StudentController extends Controller
     public function index()
     {
         //
-        return view('students.index');
     }
 
     /**
@@ -27,8 +26,6 @@ class StudentController extends Controller
     public function create()
     {
         //
-        $students = new Students;
-        return view('students.create', ['students' => $students ]);        
     }
 
     /**
@@ -62,7 +59,6 @@ class StudentController extends Controller
     public function edit($id)
     {
         //
-        return view('students.edit');
     }
 
     /**

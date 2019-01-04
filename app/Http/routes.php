@@ -40,10 +40,10 @@ Route::auth();
 Route::get('/about', 'AboutController@index');
 
 Route::auth();
-Route::resource('student','StudentController');
-
-Route::auth();
 Route::resource('patient','PatientController');
 
 Route::auth();
 Route::resource('medicalrecord','MedicalRecordController');
+
+Route::auth();
+Route::resource('vitalsign','VitalSignController');

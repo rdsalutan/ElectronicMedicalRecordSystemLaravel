@@ -30,16 +30,6 @@
                         <li><a href="{{ url('/medicalrecord') }}">View</a></li>
                     </ul>
                 </li>
-                <li class="dropdown {{ Request::is('student','student/create') ? 'active' : '' }}">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Students
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ url('/student/create') }}">New</a></li> 
-                        <li><a href="{{ url('/student') }}">View</a></li>
-                    </ul>
-                </li>
                 <li class="dropdown {{ Request::is('patient','patient/create') ? 'active' : '' }}">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         Patients

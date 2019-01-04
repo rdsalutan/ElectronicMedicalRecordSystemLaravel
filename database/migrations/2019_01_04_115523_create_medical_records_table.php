@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVitalSignsTable extends Migration
+class CreateMedicalRecordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,8 @@ class CreateVitalSignsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vital_signs', function (Blueprint $table) {
+        Schema::create('medical_records', function (Blueprint $table) {
             $table->increments('id');
-			$table->char('bp',10);
-			$table->integer('respiratory_rate');
-			$table->float('height');
-			$table->float('temp');
-			$table->integer('cardiac_rate');
-			$table->integer('weight');
             $table->timestamps();
         });
     }
@@ -31,7 +25,6 @@ class CreateVitalSignsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('vital_signs');
+        Schema::drop('medical_records');
     }
 }
-
