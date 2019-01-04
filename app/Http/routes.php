@@ -31,15 +31,6 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
-Route::auth();
-
 Route::get('/home', 'HomeController@index');
 
 Route::auth();
@@ -49,12 +40,10 @@ Route::auth();
 Route::get('/about', 'AboutController@index');
 
 Route::auth();
-Route::get('/medicalrecords/new', 'NewMedicalRecordController@index');
+Route::resource('student','StudentController');
 
 Route::auth();
-
-Route::get('/home', 'HomeController@index');
+Route::resource('patient','PatientController');
 
 Route::auth();
-
-Route::get('/home', 'HomeController@index');
+Route::resource('medicalrecord','MedicalRecordController');
