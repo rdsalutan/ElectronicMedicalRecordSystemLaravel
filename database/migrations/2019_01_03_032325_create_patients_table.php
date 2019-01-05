@@ -15,11 +15,12 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name',100);
-            $table->date('birthdate');
-            $table->enum('civilstatus',['single','married','widow','widower']);
+            $table->date('birth_date');
+            $table->enum('civil_status',['single','married','widowed','divorced']);
+            $table->enum('employment_status',['student', 'employed','unemployed']);
             $table->enum('gender',['male','female']);
-            $table->integer('mobile');
-            $table->integer('home');                        
+            $table->char('mobile');
+            $table->char('home');                        
             $table->char('email');
             $table->char('address',100);
             $table->char('religion');

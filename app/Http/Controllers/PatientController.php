@@ -13,6 +13,12 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }    
+    
     public function index()
     {
         //
@@ -43,8 +49,9 @@ class PatientController extends Controller
         //
         $patient = $this->validate(request(), [
           'name' => 'required|max:100|min:5',
-          'birthdate' => 'required|date',
-          'civilstatus' => 'required',
+          'birth_date' => 'required|date',
+          'civil_status' => 'required',
+          'employment_status' => 'required',
           'gender' => 'required',
           'mobile' => 'numeric',
           'home' => 'numeric',
@@ -54,7 +61,7 @@ class PatientController extends Controller
           'valid_id' => 'alpha_num'                      
         ]);
         Patient::create($request->all());
-        return back()->with('success', 'Patient has been added');        
+        return back()->with('success', 'Patient '. $request->name .' has been added');        
     }
 
     /**
@@ -76,7 +83,8 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $patient = Patient::find($id);
+        return view('patients.edit',compact('patient','id'));
     }
 
     /**
@@ -88,7 +96,33 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $patient = Patient::find($id);
+        $this->validate(request(), [
+                  'name' => 'required|max:100|min:5',
+                  'birth_date' => 'required|date',
+                  'civil_status' => 'required',
+                  'employment_status' => 'required',
+                  'gender' => 'required',
+                  'mobile' => 'numeric',
+                  'home' => 'numeric',
+                  'email' => 'email',
+                  'address' => 'required|max:100',
+                  'religion' => 'required|max:100',
+                  'valid_id' => 'alpha_num'                      
+                ]);
+        
+        $patient->name = $request->get('name');
+        $patient->birth_date = $request->get('birth_date');
+        $patient->civil_status = $request->get('civil_status');
+        $patient->employment_status = $request->get('employment_status');
+        $patient->gender = $request->get('gender');
+        $patient->mobile = $request->get('mobile');
+        $patient->email = $request->get('email');
+        $patient->address = $request->get('address');
+        $patient->religion = $request->get('religion');
+        $patient->valid_id = $request->get('valid_id');      
+        $patient->save();
+        return redirect('patient')->with('success','Patient ' . $request->get('name') . ' has been updated');
     }
 
     /**
@@ -99,6 +133,8 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $patient = Patient::find($id);
+        $patient->delete();
+        return redirect('patient')->with('success','Patient has been deleted');
     }
 }

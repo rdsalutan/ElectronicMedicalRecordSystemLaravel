@@ -14,12 +14,12 @@ class CreateVitalSignsTable extends Migration
     {
         Schema::create('vital_signs', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('bp',10);
+            $table->char('blood_pressure',8);
             $table->integer('respiratory_rate');
             $table->float('height');
-            $table->float('temp');
+            $table->float('temperature');
             $table->integer('cardiac_rate');
-            $table->integer('weight');            
+            $table->float('weight');            
             $table->timestamps();
         });
     }

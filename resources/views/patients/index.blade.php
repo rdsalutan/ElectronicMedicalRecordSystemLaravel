@@ -8,11 +8,14 @@
         <p>{{ \Session::get('success') }}</p>
       </div><br />
      @endif
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th>Patient ID</th>
         <th>Name</th>
+        <th>Gender</th>        
+        <th>Mobile</th>        
+        <th>Email</th>        
         <th colspan="2">Action</th>
       </tr>
     </thead>
@@ -21,6 +24,9 @@
       <tr>
         <td>{{$patient['id']}}</td>
         <td>{{$patient['name']}}</td>
+        <td>{{ ucfirst($patient['gender']) }}</td>        
+        <td>{{$patient['mobile']}}</td>        
+        <td>{{$patient['email']}}</td>        
         <td><a href="{{action('PatientController@edit', $patient['id'])}}" class="btn btn-warning">Edit</a></td>
         <td>
           <form action="{{action('PatientController@destroy', $patient['id'])}}" method="post">
@@ -32,6 +38,7 @@
       </tr>
       @endforeach
     </tbody>
-  </table>
+  </table>   
+    <a href="{{ url('/patient/create') }}" class="btn btn-primary" role="button">Add</a>
   </div>
 @endsection
